@@ -45,6 +45,7 @@ return [
                     'mautic.lead.model.field',
                     'mautic.plugin.model.integration_entity',
                     'mautic.lead.model.dnc',
+                    'mautic.lead.segment.query.filter.fields_with_unique_identifier',
                     'mautic.helper.user',
                     'twig',
                 ],

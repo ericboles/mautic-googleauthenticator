@@ -13,6 +13,7 @@ use Mautic\LeadBundle\Model\CompanyModel;
 use Mautic\LeadBundle\Model\DoNotContact as DoNotContactModel;
 use Mautic\LeadBundle\Model\FieldModel;
 use Mautic\LeadBundle\Model\LeadModel;
+use Mautic\LeadBundle\Segment\Query\Filter\FieldsWithUniqueIdentifier;
 use Mautic\PluginBundle\Integration\AbstractIntegration;
 use Mautic\PluginBundle\Model\IntegrationEntityModel;
 use MauticPlugin\HostnetAuthBundle\Helper\AuthenticatorHelper;
@@ -65,6 +66,7 @@ class HostnetAuthIntegration extends AbstractIntegration
         FieldModel $fieldModel,
         IntegrationEntityModel $integrationEntityModel,
         DoNotContactModel $doNotContact,
+        FieldsWithUniqueIdentifier $fieldsWithUniqueIdentifier,
         UserHelper $userHelper,
         Environment $twig
     ) {
@@ -84,7 +86,8 @@ class HostnetAuthIntegration extends AbstractIntegration
                 $notificationModel,
                 $fieldModel,
                 $integrationEntityModel,
-                $doNotContact
+                $doNotContact,
+                $fieldsWithUniqueIdentifier
             );
 
             $this->userHelper   = $userHelper;
