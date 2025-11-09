@@ -5,8 +5,9 @@ A Mautic plugin for two-step verification login with Google Authenticator.
 
 ### Prerequisites
 
-* Mautic 5.0+
-* Project was tested on Mautic 5.0.2
+* Mautic 6.0+ or Mautic 7.0+
+* Project was originally built for Mautic 5.0.2
+* This fork includes compatibility fixes for Mautic 6/7 (Symfony 6)
 
 ### Installing
 
@@ -67,7 +68,12 @@ In the options you can set how many days you wish to not enter the code again wh
 
 ## Changelog
 
-[todo]
+### Mautic 6/7 Compatibility (dev_mautic5 branch)
+* Fixed `RequestEvent::isMasterRequest()` deprecated method → `isMainRequest()`
+* Removed `SessionInterface` from Integration constructor (no longer supported in Symfony 6)
+* Updated session access pattern from `$this->get('session')` to `$request->getSession()`
+* Fixed DateTime instantiation to use objects instead of date strings
+* Restructured plugin directory for proper Mautic integration
 
 ## Built With
 
