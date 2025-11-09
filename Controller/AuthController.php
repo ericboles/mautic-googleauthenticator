@@ -75,14 +75,14 @@ class AuthController extends CommonController
                     $browser = new AuthBrowser();
                     $browser->setUserId($this->userHelper->getUser()->getId());
                     $browser->setHash($request->request->get('hash'));
-                    $browser->setDateAdded(date('Y-m-d H:i:s'));
+                    $browser->setDateAdded(new \DateTime());
 
                     $entityManager->persist($browser);
 
                     $entityManager->flush();
                 }
 
-                $this->get('session')->set('gauth_granted', true);
+                $request->getSession()->set('gauth_granted', true);
 
                 $response =  new RedirectResponse('dashboard');
                 $response->headers->setCookie(

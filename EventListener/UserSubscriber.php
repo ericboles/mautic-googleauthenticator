@@ -23,7 +23,6 @@ class UserSubscriber implements EventSubscriberInterface
 {
     protected $router;
     protected $security;
-    protected $session;
     protected $integration;
 
     /**
@@ -60,7 +59,7 @@ class UserSubscriber implements EventSubscriberInterface
      */
     public function onKernelRequest(RequestEvent $event)
     {
-        if (!$event->isMasterRequest()) {
+        if (!$event->isMainRequest()) {
             return false;
         }
 
