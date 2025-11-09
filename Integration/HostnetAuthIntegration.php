@@ -13,7 +13,7 @@ use Mautic\LeadBundle\Model\CompanyModel;
 use Mautic\LeadBundle\Model\DoNotContact as DoNotContactModel;
 use Mautic\LeadBundle\Model\FieldModel;
 use Mautic\LeadBundle\Model\LeadModel;
-use Mautic\LeadBundle\Segment\Query\Filter\FieldsWithUniqueIdentifier;
+use Mautic\LeadBundle\Field\FieldsWithUniqueIdentifier;
 use Mautic\PluginBundle\Integration\AbstractIntegration;
 use Mautic\PluginBundle\Model\IntegrationEntityModel;
 use MauticPlugin\HostnetAuthBundle\Helper\AuthenticatorHelper;
