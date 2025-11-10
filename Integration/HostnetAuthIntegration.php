@@ -31,13 +31,13 @@ use Twig\Environment;
 
 class HostnetAuthIntegration extends AbstractIntegration
 {
-    private $twig;
-
     protected $user;
 
     protected $status_field;
 
     protected $secret_field;
+
+    protected $cookie_field;
 
     protected $gauth;
 
@@ -67,8 +67,8 @@ class HostnetAuthIntegration extends AbstractIntegration
         IntegrationEntityModel $integrationEntityModel,
         DoNotContactModel $doNotContact,
         FieldsWithUniqueIdentifier $fieldsWithUniqueIdentifier,
-        UserHelper $userHelper,
-        Environment $twig
+        private UserHelper $userHelper,
+        private Environment $twig
     ) {
             $this->log_message('__construct');
             parent::__construct(
@@ -89,9 +89,6 @@ class HostnetAuthIntegration extends AbstractIntegration
                 $doNotContact,
                 $fieldsWithUniqueIdentifier
             );
-
-            $this->userHelper   = $userHelper;
-            $this->twig         = $twig;
 
             $this->user = $this->userHelper->getUser();
 
