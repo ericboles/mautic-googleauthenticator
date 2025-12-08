@@ -23,6 +23,7 @@ class AuthController extends CommonController
 {
     protected IntegrationHelper $integrationHelper;
     protected UserHelper $userHelper;
+    protected ManagerRegistry $doctrine;
 
     public function __construct(
         ManagerRegistry $doctrine,
@@ -49,6 +50,7 @@ class AuthController extends CommonController
         );
         $this->integrationHelper = $integrationHelper;
         $this->userHelper        = $userHelper;
+        $this->doctrine          = $doctrine;
     }
 
     public function authAction(Request $request)
@@ -67,7 +69,7 @@ class AuthController extends CommonController
                 $trustBrowser = (bool) $request->request->get('trust_browser');
 
                 if ($trustBrowser) {
-                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager = $this->doctrine->getManager();
 
                     $browser = new AuthBrowser();
                     $browser->setUserId($this->userHelper->getUser()->getId());
